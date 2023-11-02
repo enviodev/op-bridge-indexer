@@ -1,0 +1,72 @@
+type EventsSummary {
+  id: ID!
+  depositFinalized: [DepositFinalized!]! @derivedFrom(field: "eventsSummary")
+  depositFinalizedsCount: BigInt!
+  eRC20BridgeFinalized: [ERC20BridgeFinalized!]! @derivedFrom(field: "eventsSummary")
+  eRC20BridgeFinalizedsCount: BigInt!
+  eRC20BridgeInitiated: [ERC20BridgeInitiated!]! @derivedFrom(field: "eventsSummary")
+  eRC20BridgeInitiatedsCount: BigInt!
+  eTHBridgeFinalized: [ETHBridgeFinalized!]! @derivedFrom(field: "eventsSummary")
+  eTHBridgeFinalizedsCount: BigInt!
+  eTHBridgeInitiated: [ETHBridgeInitiated!]! @derivedFrom(field: "eventsSummary")
+  eTHBridgeInitiatedsCount: BigInt!
+  withdrawalInitiated: [WithdrawalInitiated!]! @derivedFrom(field: "eventsSummary")
+  withdrawalInitiatedsCount: BigInt!
+}
+
+type DepositFinalized {
+  id: ID!
+  l1Token: String!
+  l2Token: String!
+  from: String!
+  to: String!
+  amount: BigInt!
+  extraData: String!
+  eventsSummary: String!
+}
+type ERC20BridgeFinalized {
+  id: ID!
+  localToken: String!
+  remoteToken: String!
+  from: String!
+  to: String!
+  amount: BigInt!
+  extraData: String!
+  eventsSummary: String!
+}
+type ERC20BridgeInitiated {
+  id: ID!
+  localToken: String!
+  remoteToken: String!
+  from: String!
+  to: String!
+  amount: BigInt!
+  extraData: String!
+  eventsSummary: String!
+}
+type ETHBridgeFinalized {
+  id: ID!
+  from: String!
+  to: String!
+  amount: BigInt!
+  extraData: String!
+  eventsSummary: String!
+}
+type ETHBridgeInitiated {
+  id: ID!
+  from: String!
+  to: String!
+  amount: BigInt!
+  extraData: String!
+  eventsSummary: String!
+}
+type WithdrawalInitiated {
+  id: ID!
+  l1Token: String!
+  l2Token: String!
+  from: String!
+  to: String!
+  amount: BigInt!
+  extraData: String!
+  eventsSummary: String!
+}

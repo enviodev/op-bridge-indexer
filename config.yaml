@@ -1,0 +1,29 @@
+name: L2StandardBridge
+description: op bridge
+networks:
+- id: 10
+  start_block: 0
+  contracts:
+  - name: L2StandardBridge
+    handler: src/EventHandlers.ts
+    address:
+    - 0x4200000000000000000000000000000000000010
+    events:
+    - event: DepositFinalized(address indexed l1Token, address indexed l2Token, address indexed from, address to, uint256 amount, bytes extraData)
+      requiredEntities:
+      - name: EventsSummary
+    - event: ERC20BridgeFinalized(address indexed localToken, address indexed remoteToken, address indexed from, address to, uint256 amount, bytes extraData)
+      requiredEntities:
+      - name: EventsSummary
+    - event: ERC20BridgeInitiated(address indexed localToken, address indexed remoteToken, address indexed from, address to, uint256 amount, bytes extraData)
+      requiredEntities:
+      - name: EventsSummary
+    - event: ETHBridgeFinalized(address indexed from, address indexed to, uint256 amount, bytes extraData)
+      requiredEntities:
+      - name: EventsSummary
+    - event: ETHBridgeInitiated(address indexed from, address indexed to, uint256 amount, bytes extraData)
+      requiredEntities:
+      - name: EventsSummary
+    - event: WithdrawalInitiated(address indexed l1Token, address indexed l2Token, address indexed from, address to, uint256 amount, bytes extraData)
+      requiredEntities:
+      - name: EventsSummary
